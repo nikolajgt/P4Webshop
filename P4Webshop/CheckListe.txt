@@ -1,0 +1,46 @@
+﻿BACKEND:::::
+
+User types: 
+
+	Customer can:
+		- Add products to basket																		done
+		- Remove product from basket																	done
+		- Buy products from basket																		done
+		- Change/update user information																done
+		- See delivery time/see all ongoing deliverys													not done
+		- Login using UserController login																Done
+		- Refresh/Revoke JWT tokens																		done
+		- Change between diffent delivery addresses (1 primary, list sekundær)							Not done
+
+	Admin can:
+		- Add/remove/update products																	Done
+		- Add/remove/update users																		Almost done (Probaly need to create update/remove)
+		- See all user types																			Done
+		- Use Check system health																		Almost done => Need induvidual endpoints to work
+		- Lock/unlock users (Banned)																	Done
+		- Start/stop backgroundworkers																	Done
+
+	Employee can:
+		- Nothing yet(used to demonstrate)																Done
+
+	
+
+BackgroundWorkers:
+	
+	Worker1:
+		- Gets order data from db																		Done
+		- Creates deliveryObject out from order data													Almost done
+		- (Maybe creates random delivery times)
+		- Queues the deliveryobect																		Done
+
+	Worker2:
+		- Gets data from queue																			Done
+		- Simulates the delivery																		Not done
+		- Updating deliery table																		Not done
+		- Use SignalR to send info about deliery														Not done
+
+
+
+ Security: 
+	
+	-Fix ip and refreshTokens check

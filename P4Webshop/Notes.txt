@@ -1,0 +1,63 @@
+﻿The flow of the program:
+
+	1. When úser use an endpoint, the http request will first hit our CustomerAuthenticationHandler (Middleware)
+		There it will depending on the token either get succed and sets HttpContext.User and allow the request to the controller
+		or returns ResponseErrorCode
+
+	2. After that the request hits the controller and it checks for role authorize attributes and then we can get the user claims (ID, username etc..)
+
+	3. And now its normal flow through out the program, just with a tad more switch cases and generic repos
+
+
+	There is documentaion on JWT Classes, Test controller, User controller, base user model, IGenericUserRepository and GenericUserRepository
+
+
+	What technology are used for now:
+		- JWT ---> with roles, custom middleware, Custom attributes.
+		- Identity core for taking care of all user funcitons fx log in, create user and so on.
+		- Generic repository for creating crud for all user types
+		- A bit of model polymorphism with user as base model
+		- AutoMapper
+		- Health check
+		- Background workers ---> Cancelletion tokens
+
+
+
+	Generic ef core repository how to guide:
+		- https://www.youtube.com/watch?v=-jcf1Qq8A-4&t=1921s
+
+
+	What is Identity Core:
+		- https://www.youtube.com/watch?v=9rGeTjoKsb8
+
+	Forgot password written guide:
+		- https://code-maze.com/password-reset-aspnet-core-identity/
+
+
+	Funny animals video:
+		- https://www.youtube.com/watch?v=tnab0QZFJAE
+
+
+
+
+	// Delivery/order service
+		
+		Customer:
+			- Customer should be able to track orderd package(s) and sort them
+			- Customer should be able to reject package, and package returns to shop (Money back except delivery cost)
+			- Customer CAN regret purchase in for 3 days (Maybe a way to send package back)
+			- Customer gets notified when package arrived.
+		
+		Admin: 
+			- Admin can see all ordred package with name from buyer and package ID
+			- Admin can reject order/create order for user
+
+
+		Backend: 
+			- Every orderd package gets a unique id to track it (Just use Pk?).
+			- If item is not in warehouse, set delivery longer.
+			- When package returns, add it to warehouse.
+
+
+		Extra toughts on backend:
+			- Would it be a good idea to implement google user service to our program. This way we can send notifications to user without it be only on website and its good REAL WOLRD training

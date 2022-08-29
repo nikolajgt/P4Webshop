@@ -1,0 +1,9 @@
+﻿What does the program do?
+
+UserService:
+	UserService is handling user creation, login and access to standard crud. UserService can take every user type and sort it to the right repository.
+
+AdminService:
+	Is for handling every 
+
+Employee:
